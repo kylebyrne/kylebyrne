@@ -15,7 +15,7 @@ module.exports = {
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.pug',
       inject: true,
       chunks: ['index'],
       filename: 'index.html'
@@ -29,6 +29,13 @@ module.exports = {
           'style-loader',
           'css-loader',
           'sass-loader'
+        ]
+      },
+      {
+        test: /\.pug/,
+        use: [
+          'raw-loader',
+          'pug-html-loader'
         ]
       },
       {

@@ -34,6 +34,10 @@ module.exports = {
         loader: "babel-loader"
       },
       {
+        test: /\.pug/,
+        use: [ 'raw-loader', 'pug-html-loader']
+      },
+      {
         test: /\.(css|sass|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -47,7 +51,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(buildPath),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.pug',
       inject: 'body',
       chunks: ['index'],
       filename: 'index.html'

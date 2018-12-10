@@ -1,16 +1,16 @@
 require('normalize.css/normalize.css');
 require('./application.scss');
 
-class Foo {
-    constructor(){
-        this.value = "foobar"
-    }
-    static instance() {
-        return new Foo()
-    }
-    getValue() {
-        return this.value
-    }
+let circle = [..document.querySelector("#test"),
+  circleCenter = [circle.offsetLeft + 16, circle.offsetTop + 16]
+
+const mouseMove = (e) => {
+  let angle = Math.atan2(e.pageX - circleCenter[0], -(e.pageY - circleCenter[1])) * (180/Math.PI)
+
+  circle.style.transform = `rotate(${angle}deg)`
 }
 
-console.log(Foo.instance().getValue())
+document.addEventListener("mousemove", mouseMove)
+
+
+
