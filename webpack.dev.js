@@ -19,7 +19,14 @@ module.exports = {
       inject: true,
       chunks: ['index'],
       filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/birthday.pug',
+      inject: true,
+      chunks: ['index'],
+      filename: 'birthday.html'
     })
+
   ],
   module: {
     rules: [
@@ -49,6 +56,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
+      },
+      {
+        test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   }

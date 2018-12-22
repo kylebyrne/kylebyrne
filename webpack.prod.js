@@ -35,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.pug/,
-        use: [ 'raw-loader', 'pug-html-loader']
+        use: ['raw-loader', 'pug-html-loader']
       },
       {
         test: /\.(css|sass|scss)$/,
@@ -43,6 +43,10 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           "css-loader"
         ]
+      },
+      {
+        test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   },
@@ -55,6 +59,12 @@ module.exports = {
       inject: 'body',
       chunks: ['index'],
       filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/birthday.pug',
+      inject: 'body',
+      chunks: ['index'],
+      filename: 'birthday.html'
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",

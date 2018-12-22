@@ -1,5 +1,61 @@
-.app {
+@import "../assets/stylesheets/icons";
+
+@font-face {
+  font-family: "ObjectSans";
+  src: url("../assets/fonts/ObjectSans/ObjectSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ObjectSans";
+  src: url("../assets/fonts/ObjectSans/ObjectSans-Heavy.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ObjectSans";
+  src: url("../assets/fonts/ObjectSans/ObjectSans-Slanted.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ObjectSans";
+  src: url("../assets/fonts/ObjectSans/ObjectSans-HeavySlanted.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+body {
   background: #f25652;
+  font-family: "ObjectSans";
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+#option-1 {
+  background-image: url("../assets/images/chrus_dam.jpg");
+  background-position: left; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+#option-2 {
+  background-image: url("../assets/images/chrus_jewell.jpg");
+  background-position: right; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+
+.app {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -23,5 +79,120 @@
     border-radius: 50%;
     background: rgb(242,86,82);
     background: linear-gradient(180deg, #F25652 0%, #FFF 100%);
+  }
+}
+
+.birthday {
+  color: white;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    line-height: 8rem;
+    font-size: 9rem;
+    font-weight: 700;
+  }
+
+  .instructions {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  .scroll-icon {
+    transition: .3s;
+    &:hover {
+      color: black;
+    }
+  }
+
+  .options {
+    height: 100vh;
+    display: flex;
+  }
+
+  .option {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 3rem;
+    flex: 1;
+    transition: 0.2s ease;
+
+    h2 {
+      font-weight: 700;
+    }
+  }
+
+  .option-inner {
+    width: 40vw;
+    background: #f25652;
+    padding: 1em 3em;
+  }
+
+  .option:hover{
+    flex: 1.2;
+  }
+
+  #option-1 {
+    background-color: #a6d05c;
+    border-right: 1px solid white;
+  }
+
+  #option-2 {
+    background-color: #32b1d3;
+    border-left: 1px solid white;
+    .option-inner {
+      margin-left: auto;
+    }
+  }
+
+  .celebration {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
+
+  .vertical-scrolling {
+    position: relative;
+  }
+
+  .divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    color: black;
+    font-size: 32px;
+    pointer-events: none;
+    transition: 0.2s ease;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+
+      h1 {
+        font-weight: 700;
+      }
+    }
   }
 }
